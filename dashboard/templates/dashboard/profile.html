@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="profile-container">
+  <div class="profile-box">
+      <div class="profile">
+        <form method="post" action="." enctype="multipart/form-data">
+          {% csrf_token %}
+          <img src="#" alt="">
+          <div>
+              {{ form.as_p }}
+          </div>
+          {% if form.errors or form.non_field_errors %}
+              <div>
+                  {% for field in form %}
+                      {{ field.errors }}
+                  {% endfor %}
+      
+                  {{ form.non_field_errors }}
+              </div>
+          {% endif %}
+          <button type="Submit" class="btn-category">Submit</button>
+      </form>
+      
+      </div>
+      <div class="user-item">
+          <h2>About user</h2>
+          <label for="">About-summary</label>
+          <br>
+          <textarea></textarea>
+      </div>
+  </div>
+</div>
+
+
+{% endblock  %}

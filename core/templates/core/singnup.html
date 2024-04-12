@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+{% block title %}Signup{% endblock  %}
+{% block content %}
+<div class="container_singnup">
+    <div class="singnup-page">
+        <h3 style="padding: 5px;"><span style="color: cadetblue;">singn</span> up</h3>
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            <input type="text" placeholder="Username" name="Username">
+            <br>
+            <input type="text" placeholder="email" name="email">
+            <br>
+            <input type="Password" placeholder="Password1" name="Password1">
+            <br>
+            <input type="Password" placeholder="Password2" name="Password2">
+            <br>
+            <button class="btn-category" type='submit'>Singnup</button>
+        </form>
+    </div>
+</div>
+{% endblock  %}

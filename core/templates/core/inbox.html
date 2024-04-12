@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% block content %}
+    <h3 style="text-align: center;"><span>All</span>  comment</h3>
+    <div class="inbox-container">
+      <div class="inbox-box">
+        {% for contact in contact %}
+            <div class="inbox-contact">
+                <h4>Name:{{contact.name}}</h4>
+                <h4>Email:{{contact.Email}}</h4>
+                <p>Massage:{{contact.description}}</p>
+            </div>
+          {% endfor %}
+      </div>
+  </div>
+
+{% endblock  %}

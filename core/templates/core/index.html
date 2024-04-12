@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{% block title %}Home{% endblock  %}
+{% block content %}
+<div class="servicehave">
+    <h3 style="text-align: center;"><span>Beautyfull</span>  Picture</h3>
+      <div class="servicecontainer">
+        {% for item in image %}
+          <a href="{% url "core:details" item.id %}">
+            <div>
+              <img src="{{item.image.url}}" alt="" style="object-fit:cover;">
+              
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+  </div>
+{% endblock  %}

@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{% block title %}dashboard{% endblock  %}
+{% block content %}
+<div class="servicehave">
+    <h3 style="text-align: center;"><span>User uploaded</span>  Picture</h3>
+      <div class="servicecontainer">
+        {% for item in item %}
+          <a href="{% url "core:details" item.id %}">
+            <div>
+              <img src="{{item.image.url}}" alt="noimage" style="object-fit:cover;">
+              
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+  </div>
+{% endblock  %}

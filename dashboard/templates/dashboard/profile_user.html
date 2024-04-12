@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="profile-container">
+    <div class="profile-box">
+        <div class="profile">
+            <form action="">
+            {% for profile in profile %}
+            <img src="{{profile.image.url}}" alt="">
+            <br>
+            <input type="text" value='{{profile.name}}' name="name">
+            <br>
+            <input type="text" value='{{profile.email}}' name="email">
+            <br>
+            <input type="text" value='{{profile.number}}' name="phone">
+            <br>
+            <input type="text" value='{{profile.github}}' name="github-link">
+            {% endfor %}
+            <br>
+            <button type="submit" class="btn-category">
+                <a href="{% url "dashboard:edit_profile" %}">
+                Edit
+                </a>
+            </button>
+            </form>
+        </div>
+        <div class="user-item">
+            <h2>About user</h2>
+            <label for="">About-summary</label>
+            <br>
+            <textarea></textarea>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

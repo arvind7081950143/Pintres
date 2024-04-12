@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+{% block content %}
+    <h3 style="text-align: center;"><span>All</span>  comment</h3>
+    <div class="inbox-container">
+      <div class="inbox-box">
+        {% for message in conversation.messages.all %}
+            <div class="inbox" style="{% if message.created_by == request.user %}background-color:white;{% else %}background-color:#E9EAF5;{% endif %}">
+               <div>
+                <p class="mb-4"><strong>{{ message.created_by.username }}</strong> @ {{ message.created_at }}</p>
+                <p>{{ message.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <form method="post">
+                {% csrf_token %}
+            
+                <div>
+                    {{ form.as_p }}
+                </div>
+            
+                {% if form.errors or form.non_field_errors %}
+                    <div>
+                        {% for field in form %}
+                            {{ field.errors }}
+                        {% endfor %}
+            
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+            
+                <button type="Submit" class="btn-category">Send</button>
+            </form>
+      </div>
+  </div>
+
+{% endblock  %}

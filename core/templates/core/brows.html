@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+{% block title %}Search{% endblock  %}
+{% block content %}
+<div class="brows-head">
+    <div class="btn-container">
+      {% for category in category %}
+        <a href="{% url 'core:brows' %}?query={{ query }}&category={{ category.id }}"><button name="category-data" class="btn-category">{{category.name}}</button></a>
+      {% endfor %}
+    </div>
+    <div class="search-box">
+        <form method='get' action="{% url 'core:brows' %}">
+        <input type="text" name="search-data" value={{query}}>
+        <button class="btn-category" type='submit'>
+            search
+        </button>
+    </form>
+    </div>
+</div>
+<div class="servicehave">
+    <h3 style="text-align: center;"><span>search</span>  item</h3>
+      <div class="servicecontainer">
+        {% for item in item %}
+          <a href="{% url "core:details" item.id %}">
+            <div>
+              <img src="{{item.image.url}}" alt="" style="object-fit:cover;">
+              
+            </div>
+          </a>
+          {% endfor %}
+      </div>
+  </div>
+
+{% endblock  %}

@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+{% block title %}login{% endblock  %}
+{% block content %} 
+<div class="container_login">
+    <div class="login-page">
+        <h3 style="padding: 5px;"><span style="color: cadetblue;">Log</span> in</h3>
+        <form method="post">
+            {% csrf_token %}
+            <br>
+            <input type="text" placeholder="Username" name="Username">
+            <br>
+            <input type="Password" placeholder="Password" name="Password">
+            <br>
+            <button class="btn-category" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock  %}

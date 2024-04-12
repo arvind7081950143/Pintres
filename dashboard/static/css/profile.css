@@ -1,0 +1,63 @@
+/* main section start */
+.profile-container{
+    width: 100%;
+    min-height: 80vh;
+    height: auto;
+  }
+  .profile-box{
+    width: 100%;
+    height: auto;
+  }
+  .profile{
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--clr-grey-8);
+  }
+  .profile img{
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .profile input{
+    margin-top: 20px;
+    width: 80%;
+    height: 40px;
+    outline: none;
+    border:none;
+    background-color: transparent;
+    border-bottom: 2px solid seagreen;
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .profile label{
+    color: black;
+  }
+  .user-item{
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    text-align: center;
+  }
+  .user-item textarea{
+    width: 90%;
+    min-height: 200px;
+    height: auto;
+    outline: none;
+    border: 1px solid rgb(41, 22, 5);
+  }
+  @media screen and (min-width: 800px) {
+    .profile{
+        width: 30%;
+        height: 100vh;
+    }
+    .user-item{
+      width: 70%;
+      height: 100vh;
+    }
+    .profile-box{
+      display: flex;
+    }
+  }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Goldpic</title>
+
+    <link rel="icon" href="https://img.freepik.com/free-vector/gradient-p-logo-template_23-2149372725.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712793600&semt=ais" type="image/x-icon">
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/static/css/style.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/details.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/login_signup.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/brows.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/profile.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/inbox.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/upload.css?{% now "U" %}"/>
+  </head>
+  <body>
+    <nav id="nav">
+        <div class="nav-center">
+            <div class="nav-header">
+                <img src="https://img.freepik.com/free-vector/gradient-p-logo-template_23-2149372725.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712793600&semt=ais" alt="no image" style="width:50px; height:50px; border-radius:50%;">
+                {% comment %} <h2>Goldpic</h2> {% endcomment %}
+                <button class="btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="links">
+                <li>
+                    <a href="{% url "core:index" %}">Home</a>
+                </li>
+                <li>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "dashboard:dashboard" %}">dashboard</a>
+                    {% else %}
+                    <a href="{% url "core:contact" %}">contact</a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="{% url "core:brows" %}">Brows</a>
+                </li>
+                <li>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "dashboard:new" %}">New vlog</a>
+                    {% else %}
+                    <a href="{% url "core:about" %}">About</a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if request.user.is_superuser %}
+                    <a href="{% url "core:contact_inbox" %}">Contact Inbox</a>
+                    {% endif %}
+                </li>
+            </ul>
+            <!--social link-->
+            <ul class="social-icon">
+                <li>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "core:logout" %}">
+                    Logout
+                    </a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "comment:inbox" %}">
+                       inbox
+                    </a>
+                    {% else %}
+                    <a href="{% url "core:singnup" %}">
+                        Sign
+                     </a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url "dashboard:profile_user" %}">
+                       {{request.user}}
+                    </a>
+                    {% else %}
+                    <a href="{% url "core:login" %}">
+                        Login
+                     </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% block content %}
+
+{% endblock  %}
+
+    <div class="foother">
+        <p>
+            copyright &copy; backroads travel tours company
+            <span id="date"></span>. all rights reserved
+          </p>
+    </div>
+    <!-- javascript -->
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

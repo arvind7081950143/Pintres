@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+{% block content %}
+    <h3 style="text-align: center;"><span>All</span>  comment</h3>
+    <div class="inbox-container">
+      <div class="inbox-box">
+        {% for comment in comment %}
+          <a href="{% url "comment:details" comment.id %}">
+            
+            <div class="inbox">
+              <div class="comment-image">
+                  <img src="{{comment.item.image.url}}" alt="">
+              </div>
+              <div class="username">
+                {% for member in comment.members.all %}
+                {% if member != request.user %}
+                    <p class="mb-4"><strong>{{ member.username }}</strong> | {{ comment.modified_at }}</p>
+                    <p>{{ comment.item.name }}</p>
+                {% endif %}
+            {% endfor %}
+              </div>
+              
+            </div>
+          </a>
+          {% endfor %}
+      </div>
+  </div>
+
+{% endblock  %}

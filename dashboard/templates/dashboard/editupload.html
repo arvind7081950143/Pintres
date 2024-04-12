@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% block title %}new{% endblock  %}
+
+{% block content %}
+<div class="container_new">
+    <div class="new-box">
+<form method="post" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div>
+        {{ form.as_p }}
+    </div>
+    {% if form.errors or form.non_field_errors %}
+        <div>
+            {% for field in form %}
+                {{ field.errors }}
+            {% endfor %}
+
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    <button class="btn-category" type="Submit">Submit</button>
+</form>
+</div>
+</div>
+{% endblock %}

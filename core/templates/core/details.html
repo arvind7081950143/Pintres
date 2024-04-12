@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+{% block title %}details{% endblock  %}
+{% block content %}
+<section class="section-center">
+    <!-- image -->
+    <article class="gift-img">
+      <img src="{{item.image.url}}" alt="gift" />
+    </article>
+    <!-- info -->
+    <article class="gift-info">
+      <h3>{{item.name}}</h3>
+      <h4 class="giveaway">
+        this picture is created by..{{item.created_by}}
+      </h4>
+      <p>
+        {{item.description}}
+      </p>
+    <a href="{{item.image.url}}" download>
+      <button type="button" class="btn-comment">
+            download
+      </button>
+    </a>
+    <a href="{% url "comment:comment" item.id %}">
+    <button type="button" class="btn-comment">
+      comment
+    </button>
+    </a>
+    {% if request.user == item.created_by %}
+    <a href="{% url "dashboard:edit" item.id %}">
+      <button type="button" class="btn-comment">
+        edit
+      </button>
+      </a>
+    {% endif %}
+    </article>
+  </section>
+  
+{% endblock  %}
